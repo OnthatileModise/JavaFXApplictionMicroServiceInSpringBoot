@@ -14,7 +14,7 @@ import org.hibernate.type.SqlTypes;
 @Entity @Table(name = "USERS")
 @Getter
 @Setter
-public class LoginModel {
+public class UserModel {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "ID", nullable = false) @JdbcTypeCode(SqlTypes.BIGINT) private Long id;
     @Column(name = "NAME") private String name;
     @Column(name = "SURNAME") private String surname;

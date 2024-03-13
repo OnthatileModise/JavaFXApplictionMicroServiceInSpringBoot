@@ -1,6 +1,6 @@
 package com.example.loginmicroservice.controller;
 
-import com.example.loginmicroservice.model.LoginModel;
+import com.example.loginmicroservice.model.UserModel;
 import com.example.loginmicroservice.service.LoginService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +22,10 @@ public class LoginController {
         this.loginService = loginService;
     }
 
-    @PostMapping("/performLogin") ResponseEntity<LoginModel> performLogin(
+    @PostMapping("/performLogin") ResponseEntity<UserModel> performLogin(
           @RequestBody Map<? , ?> loginData
     ){
-        LoginModel loginModel = loginService.performLogin(String.valueOf(loginData.get("name")), String.valueOf(loginData.get("password")));
+        UserModel loginModel = loginService.performLogin(String.valueOf(loginData.get("name")), String.valueOf(loginData.get("password")));
         if (loginModel == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }else {

@@ -29,4 +29,8 @@ public class DoctorsService {
     public void deleteDoctorById(Long id){
         doctorsRepository.deleteById(id);
     }
+
+    public List<DoctorsModel> getDoctorsModelBySpecialization(String specialization){
+        return doctorsRepository.getDoctorsModelBySpecialization(specialization);
+    }
 }

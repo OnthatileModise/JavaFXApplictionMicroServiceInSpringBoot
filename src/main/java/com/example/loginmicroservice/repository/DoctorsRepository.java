@@ -15,4 +15,15 @@ public interface DoctorsRepository extends CrudRepository<DoctorsModel , Long> {
                 DoctorsModel dm
             """
     ) List<DoctorsModel> getAllDoctors();
+
+    @Query(
+            """
+            SELECT
+                dm
+            FROM
+                DoctorsModel dm
+            WHERE
+                dm.specialization = ?1
+            """
+    )List<DoctorsModel> getDoctorsModelBySpecialization(String specialisation);
 }

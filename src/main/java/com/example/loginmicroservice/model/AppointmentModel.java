@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,4 +27,7 @@ public class AppointmentModel {
     @Column(name = "DATE_MODIFIED") private LocalDate dateModified;
     @Column(name = "DATE_DELETED") private LocalDate dateDeleted;
     @Column(name = "STATUS") private String status;
+    @Column(name = "DIAGNOSIS") private String diagnosis;
+    @Column(name = "TREATMENT") private String treatment;
+    @JoinColumn(name = "DOCTORS_ID") @ManyToOne DoctorsModel doctorsModel;
 }

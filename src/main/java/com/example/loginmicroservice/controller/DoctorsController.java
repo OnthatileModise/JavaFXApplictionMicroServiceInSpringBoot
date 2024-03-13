@@ -49,4 +49,15 @@ public class DoctorsController {
             e.printStackTrace();
         }
     }
+
+    @PostMapping("/getDoctorsBySpecialization") private ResponseEntity<List<DoctorsModel>> getDoctorsModelBySpecialization(
+            @RequestBody Map<? , ?> specialization
+    ){
+       List<DoctorsModel> doctorsModels = doctorsService.getDoctorsModelBySpecialization(String.valueOf(specialization.get("specialization")));
+       if (doctorsModels.isEmpty()){
+           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+       }else {
+           return ResponseEntity.ok().body(doctorsModels);
+       }
+    }
 }
